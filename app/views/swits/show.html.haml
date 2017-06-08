@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Post:
+  = @swit.post
+%p
+  %b Sweets count:
+  = @swit.sweets_count
+%p
+  %b Sours count:
+  = @swit.sours_count
+%p
+  %b User:
+  = @swit.user
+
+= link_to 'Edit', edit_swit_path(@swit)
+\|
+= link_to 'Back', swits_path

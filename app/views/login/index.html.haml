@@ -1,0 +1,42 @@
+#login-nav
+    %h3 Log in
+    = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => { :method => :post } do |f|
+        #login-username
+            = f.label(:username, "Username")
+            = f.text_field(:username)
+        #login-password
+            = f.label(:password, "Password")
+            = f.password_field(:password)
+        #login-submit
+            = f.submit("Log In")
+%br
+%br
+
+#login-signup
+    %h3 Sign up
+    = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:method => :post} do |f|
+
+        #signup-username
+            = f.label(:username, "Username")
+            = f.text_field(:username)
+        #signup-password
+            = f.label(:password, "Password")
+            = f.password_field(:password)
+        #signup-email
+            = f.label(:email, "Email Address")
+            = f.text_field(:email)
+        #signup-bday
+            = f.label(:birthday, "Birthday")
+            = f.date_select(:birthday)
+        #signup-bio
+            = f.label(:bio, "Bio")
+            = f.text_area(:bio)
+        #signup-submit
+            = f.submit("Sign Up")
+
+        - if @user.errors.any?
+            #error_explanation
+                %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+                %ul
+                    - @user.errors.full_messages.each do |message|
+                        %li= message

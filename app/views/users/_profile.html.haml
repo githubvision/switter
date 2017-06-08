@@ -1,0 +1,14 @@
+#user-profile
+	#profile-name
+		Name:
+		= "#{@user.first_name} #{@user.last_name}"
+	#profile-birthday
+		Birthay: 
+		= @user.birthday
+	#profile-bio
+		Bio:
+		= @user.bio
+
+	- if @user.id == session[:user_id]
+		#change-profile
+			%button Edit Profile

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post: MyText
+  sweets_count: 1
+  sours_count: MyString
+  user: one
+
+two:
+  post: MyText
+  sweets_count: 1
+  sours_count: MyString
+  user: two

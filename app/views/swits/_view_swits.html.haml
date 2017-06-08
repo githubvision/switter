@@ -1,0 +1,20 @@
+- @swits.each do |s|
+	%div.swit
+		%div.swit-username
+			= s.user.username
+		%div.swit-post
+			= s.post
+		%div.swit-timestamp
+			= time_ago_in_words(s.created_at) 
+			ago
+		%div.swit-functions
+			= button_to '<-'
+			Reply
+			= s.comments.count
+			= button_to '<3', {:controller => 'swits', :action => 'update', :id => s.id}, method: :put, params: {:mode => 'sweet'}
+			Sweet
+			= s.sweets_count
+			= button_to '</3', {:controller => 'swits', :action => 'update', :id => s.id}, method: :put, params: {:mode => 'sour'}
+			Sour
+			= s.sours_count
+			
