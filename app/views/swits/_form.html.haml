@@ -1,5 +1,5 @@
 #create-swit
-= form_for @swit, :url => { :controller => 'swits', :action => 'create'}, :html => { :method => :post } do |f|
+= form_for @swit, :url => { :controller => 'swits', :action => 'create'}, :html => { :method => :post }, remote: true do |f|
   %h3 Create Swit
 
   .swit-post

@@ -32,9 +32,7 @@ class SwitsController < ApplicationController
 
     respond_to do |format|
       if @swit.save
-        format.html { redirect_to controller: 'profile', action: 'show', id: session[:user_id]}
-        format.json { render :show, status: :created, location: @swit }
-
+        format.js
       else
         redirect_to controller: 'profile', action: 'show', id: session[:user_id]
       end

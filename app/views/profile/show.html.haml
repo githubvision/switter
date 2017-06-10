@@ -6,8 +6,8 @@
 		- if @user.id == session[:user_id]
 			= render 'swits/form'
 	.eight.wide.column
+		%h1 Swits
 		#profile-swits
-			%h1 Swits
 			- @swits.each do |s|
 				- @swit = s
 				= render :partial => 'swits/view_swits'
