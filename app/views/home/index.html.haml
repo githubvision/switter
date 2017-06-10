@@ -1,12 +1,3 @@
-#home-nav
-	%h1
-		Switboard
-	= button_to 'Log Out', {:controller => 'home', :action => 'destroy'}, method: :delete
-
-	= link_to 'Home', @home
-	= link_to 'Notifications', @home
-	= link_to 'Profile', { :controller => 'profile', :action => 'show', :id => session[:user_id]}
-
 .ui.grid
 	.four.wide.column
 		%h1
