@@ -3,6 +3,8 @@ class HomeController < ApplicationController
 
 	def index
 		@user = User.find(session[:user_id])
+		@swits = Swit.all.order('created_at DESC')
+		@swit = Swit.new
 	end
 
 	def destroy
