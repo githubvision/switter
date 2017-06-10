@@ -1,0 +1,7 @@
+<% if params[:mode] == 'sweet' %>
+	console.log("sweet");
+	$('.swit-sweetcount#count<%= @swit.id %>').text('<%= @swit.sweets.count %>');
+<% else %>
+	console.log("sour");
+	$('.swit-sourcount#count<%= @swit.id %>').text('<%= @swit.sours.count %>');
+<% end %>

@@ -1,20 +1,30 @@
-- @swits.each do |s|
-	%div.swit
-		%div.swit-username
-			= s.user.username
-		%div.swit-post
-			= s.post
-		%div.swit-timestamp
-			= time_ago_in_words(s.created_at) 
-			ago
-		%div.swit-functions
+%div.swit
+	.swit-nametag
+		.swit-name
+			= @swit.user.first_name
+			= @swit.user.last_name
+
+		.swit-username
+			@
+			= @swit.user.username
+	%div.swit-post
+		= @swit.post
+	%div.swit-timestamp
+		= time_ago_in_words(@swit.created_at) 
+		ago
+	%div.swit-functions
+		.swit-function
 			= button_to '<-'
 			Reply
-			= s.comments.count
-			= button_to '<3', {:controller => 'swits', :action => 'update', :id => s.id}, method: :put, params: {:mode => 'sweet'}
+			= @swit.comments.count
+		.swit-function
+			= button_to '<3', {:controller => 'swits', :action => 'update', :id => @swit.id}, method: :put, params: {:mode => 'sweet'}, class: "sweet_btn", remote: true
 			Sweet
-			= s.sweets_count
-			= button_to '</3', {:controller => 'swits', :action => 'update', :id => s.id}, method: :put, params: {:mode => 'sour'}
+			.swit-sweetcount{:id => "count#{@swit.id}"}
+				= @swit.sweets.count
+		.swit-function
+			= button_to '</3', {:controller => 'swits', :action => 'update', :id => @swit.id}, method: :put, params: {:mode => 'sour'}, remote: true
 			Sour
-			= s.sours_count
-			
+			.swit-sourcount{:id => "count#{@swit.id}"}
+				= @swit.sours.count
+		

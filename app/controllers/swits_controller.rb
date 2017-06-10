@@ -32,12 +32,11 @@ class SwitsController < ApplicationController
 
     respond_to do |format|
       if @swit.save
-        format.html { redirect_to profile_index_path, notice: 'Swit was successfully created.' }
-        # format.json { render :show, status: :created, location: @swit }
+        format.html { redirect_to controller: 'profile', action: 'show', id: session[:user_id]}
+        format.json { render :show, status: :created, location: @swit }
+
       else
-        redirect_to profile_index_path
-        # format.html { render :new }
-        # format.json { render json: @swit.errors, status: :unprocessable_entity }
+        redirect_to controller: 'profile', action: 'show', id: session[:user_id]
       end
     end
   end
@@ -46,16 +45,25 @@ class SwitsController < ApplicationController
   # PATCH/PUT /swits/1.json
   def update
     @swit = Swit.find(params[:id])
-
     respond_to do |format|
       if params[:mode] == 'sweet'
-        @swit.sweets_count += 1
-        @swit.save
-        format.html { redirect_to profile_index_path, notice: 'sweets updated' }
-      else 
-        @swit.sours_count += 1
-        @swit.save
-        format.html { redirect_to profile_index_path, notice: 'sours updated' }
+        
+        if @swit.sweets.where("sweeter_id = ?", session[:user_id]).empty?
+          @swit.sweets.create(:sweeter_id => session[:user_id])
+        else
+          @swit.sweets.where(:sweeter_id => session[:user_id]).destroy_all
+        end
+        format.js
+
+      else
+        
+        if @swit.sours.where("sourer_id = ?", session[:user_id]).empty?
+          @swit.sours.create(:sourer_id => session[:user_id])
+        else
+          @swit.sours.where(:sourer_id => session[:user_id]).destroy_all
+        end
+        format.js
+
       end
     end
   end
@@ -74,6 +82,14 @@ class SwitsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_swit
       @swit = Swit.find(params[:id])
+    end
+
+    def sweet_params
+      params.require(:sweet).permit(:sweeter_id)
+    end
+
+    def sour_params
+      params.require(:sour).permit(:sourer_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

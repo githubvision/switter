@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607022612) do
+ActiveRecord::Schema.define(version: 20170610094135) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text "comment_body"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(version: 20170607022612) do
     t.index ["swit_id"], name: "index_comments_on_swit_id"
   end
 
+  create_table "sours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "sourer_id"
+    t.bigint "swit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["swit_id"], name: "index_sours_on_swit_id"
+  end
+
+  create_table "sweets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "sweeter_id"
+    t.bigint "swit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["swit_id"], name: "index_sweets_on_swit_id"
+  end
+
   create_table "swits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text "post"
     t.integer "sweets_count"
@@ -28,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170607022612) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sours"
+    t.string "sweets"
     t.index ["user_id"], name: "index_swits_on_user_id"
   end
 
@@ -44,5 +62,7 @@ ActiveRecord::Schema.define(version: 20170607022612) do
   end
 
   add_foreign_key "comments", "swits"
+  add_foreign_key "sours", "swits"
+  add_foreign_key "sweets", "swits"
   add_foreign_key "swits", "users"
 end

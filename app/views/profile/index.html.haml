@@ -2,7 +2,8 @@
 	Profile
 = render 'users/profile'
 
-= render 'swits/form'
+- if @user.id == session[:user_id]
+	= render 'swits/form'
 
 #profile-swits
 	%h1 Swits
