@@ -1,4 +1,6 @@
 class ProfileController < ApplicationController
+	before_action :require_login
+
 	def index
 		@user = User.find(session[:user_id])
 		@swits = User.find_by(id: session[:user_id]).swits.order('created_at DESC')
@@ -20,4 +22,12 @@ class ProfileController < ApplicationController
 		end
 	end
 
+	private
+	def require_login
+		if session[:user_id]
+			@user = User.find_by(id: session[:user_id])
+		else
+			redirect_to login_index_path
+		end
+	end
 end

@@ -8,7 +8,16 @@
 			@
 			= @swit.user.username
 	%div.swit-post
-		= @swit.post
+		- @str_ind =  @swit.post =~ /{[^{}]+}/
+		- @content = @swit.post
+		- while @str_ind != nil do
+			= @content[0..@str_ind-1]
+			- @match = @content[/{[^{}]+}/]
+			= link_to @match
+			- @next_ind = @str_ind + @match.length
+			- @content = @content[@next_ind..-1]
+			- @str_ind = @content =~ /{[^{}]+}/
+		= @content
 	%div.swit-timestamp
 		= time_ago_in_words(@swit.created_at) 
 		ago

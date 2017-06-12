@@ -19,12 +19,13 @@
 			<%= link_to 'Home', home_index_path %>
 			<%= link_to 'Notifications', @home %>
 			<%= link_to 'Profile', { :controller => 'profile', :action => 'show', :id => session[:user_id]} %>
-			<div class="ui animated button" tabindex="0">
+
+			<%= button_to home_path(:action => 'destroy', :id => session[:user_id]), :method => :delete, class: "ui animated button" do %>
 				<div class="visible content">Log Out</div>
 				<div class="hidden content">
 			    	<i class="sign out icon"></i>
 				</div>
-			</div>
+			<% end %>
 			<%= button_to 'Log Out', {:controller => 'home', :action => 'destroy'}, method: :delete %>
 		</div>
     	<%= yield %>

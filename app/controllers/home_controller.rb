@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 		@user = User.find(session[:user_id])
 		@swits = Swit.all.order('created_at DESC')
 		@swit = Swit.new
+		@comment = Comment.new
 	end
 
 	def destroy
