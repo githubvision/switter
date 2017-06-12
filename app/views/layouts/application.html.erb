@@ -9,6 +9,7 @@
   </head>
 
   <body>
+  	<div id="main">
   	<% if current_page?(:controller => 'login', :action => 'index') %>
 		<%= yield %>
   	<% else %>
@@ -29,5 +30,6 @@
 		</div>
     	<%= yield %>
     <% end %>
+    </div>
   </body>
 </html>
