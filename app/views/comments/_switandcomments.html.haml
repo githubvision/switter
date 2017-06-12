@@ -1,9 +1,9 @@
 .swit-comment-modal.ui.long.modal{:id => "swit#{@swit.id}", :data => { :reload => true }}
 	.swit-big
 		.swit-big-header
-			= @swit.user.first_name
-			= @swit.user.last_name
-			= @swit.user.username
+			%span.swit-big-name
+				= "#{@swit.user.first_name} #{@swit.user.last_name}"
+			= "@#{@swit.user.username}"
 		.swit-big-content
 			- @str_ind =  @swit.post =~ /{[^{}]+}/
 			- @content = @swit.post
@@ -18,23 +18,29 @@
 		.swit-big-timestamp
 			= time_ago_in_words(@swit.created_at) 
 			ago
-		.swit-big-functions
-			.swit-big-function
-				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true do
-					%i.icon.thumbs.up
-				Sweet
-				.swit-sweetcount{:id => "count#{@swit.id}"}
-					= @swit.sweets.count
-			.swit-big-function
-				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sour'}, :remote => true do
-					%i.icon.thumbs.down
-				Sour
-				.swit-sourcount{:id => "count#{@swit.id}"}
-					= @swit.sours.count		
+
+		%div.swit-functions
+			.swit-function
+				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true, class: "ui labeled button" do
+					.ui.red.button
+						%i.icon.map.pin
+						Sweet
+					%a.ui.basic.red.left.pointing.label
+						.swit-sweetcount{:id => "count#{@swit.id}"}
+							= @swit.sweets.count
+			.swit-function
+				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sour'}, :remote => true, class: "ui labeled button" do
+					.ui.yellow.button
+						%i.icon.lemon
+						Sour
+					%a.ui.basic.yellow.left.pointing.label
+						.swit-sourcount{:id => "count#{@swit.id}"}
+							= @swit.sours.count		
+	.write-comment
+		= render :partial => 'comments/create_comment'
+		
 	.comments
 		- @swit.comments.order('created_at DESC').each do |c|
 			- @comment = c
 			= render :partial => 'comments/comment'
 
-	.write-comment
-		= render :partial => 'comments/create_comment'

@@ -1,7 +1,8 @@
 .comment
 	.comment-header
-		= @comment.user.first_name
-		= @comment.user.last_name
+		%span.comment-name
+			= @comment.user.first_name
+			= @comment.user.last_name
 		= @comment.user.username
 	.comment-content
 		= @comment.content
