@@ -5,7 +5,7 @@ class SwitsController < ApplicationController
   # GET /swits.json
 
   def index
-    @swits = Swit.all
+    @swits = Swit.where('post LIKE ?', "%#{params[:to_match]}%")
   end
 
   # GET /swits/1

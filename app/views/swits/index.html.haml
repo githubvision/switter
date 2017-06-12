@@ -1,27 +1,5 @@
-%h1 Listing swits
+%h1 #{pluralize(@swits.count, "result")} for #{params[:to_match]}
 
-%table
-  %thead
-    %tr
-      %th Post
-      %th Sweets count
-      %th Sours count
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @swits.each do |swit|
-      %tr
-        %td= swit.post
-        %td= swit.sweets_count
-        %td= swit.sours_count
-        %td= swit.user
-        %td= link_to 'Show', swit
-        %td= link_to 'Edit', edit_swit_path(swit)
-        %td= link_to 'Destroy', swit, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Swit', new_swit_path
+- @swits.each do |s|
+  - @swit = s
+  = render :partial => 'swits/view_swits'
