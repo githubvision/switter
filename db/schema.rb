@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610094135) do
+ActiveRecord::Schema.define(version: 20170611163310) do
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.text "comment_body"
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "content"
     t.bigint "swit_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "commenter_id"
     t.index ["swit_id"], name: "index_comments_on_swit_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "sours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170610094135) do
   end
 
   add_foreign_key "comments", "swits"
+  add_foreign_key "comments", "users"
   add_foreign_key "sours", "swits"
   add_foreign_key "sweets", "swits"
   add_foreign_key "swits", "users"

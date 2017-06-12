@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_many :swits
+	has_many :comments
 	validates :password, presence:true,
 		length: {
 			minimum: 8

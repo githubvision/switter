@@ -14,8 +14,14 @@
 
 #login-signup
     %h3 Sign up
-    = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:method => :post} do |f|
+    = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:method => :post}, class: "ui form" do |f|
 
+        #signup-firstname
+            = f.label(:first_name, "First Name")
+            = f.text_field(:first_name)
+        #signup-firstname
+            = f.label(:last_name, "Last Name")
+            = f.text_field(:last_name)
         #signup-username
             = f.label(:username, "Username")
             = f.text_field(:username)

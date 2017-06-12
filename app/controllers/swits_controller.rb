@@ -11,6 +11,11 @@ class SwitsController < ApplicationController
   # GET /swits/1
   # GET /swits/1.json
   def show
+    @swit = Swit.find(params[:id])
+    
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /swits/new

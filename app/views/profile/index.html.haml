@@ -2,6 +2,8 @@
 	.four.wide.column
 		%h1
 			Profile
+		#trigger.ui.button
+			Trigger
 		= render 'users/profile'
 		- if @user.id == session[:user_id]
 			= render 'swits/form'

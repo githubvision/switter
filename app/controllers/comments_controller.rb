@@ -1,13 +1,14 @@
 class CommentsController < ApplicationController
-	def create
+	def show
 		@swit = Swit.find(params[:swit_id])
-
-		@comment = @swit.comments.create(comment_params)
-		redirect_to swit_path
+		respond_to do |format|
+			format.js
+		end
 	end
 
-	private
-		def comment_params
-			params.require(:comment).permit(:commenter_id, :comment_body)
-		end
+	def create
+		@swit = Swit.find(params[:swit_id])
+		@comment = @swit.comments.create(user_id: session[:user_id], content: params[:content])
+
+	end
 end

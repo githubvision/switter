@@ -1,4 +1,4 @@
-%div.swit
+%div.swit{:id => "swit#{@swit.id}"}
 	.swit-nametag
 		.swit-name
 			= @swit.user.first_name
@@ -14,7 +14,11 @@
 		ago
 	%div.swit-functions
 		.swit-function
-			= button_to '<-'
+			%button.show-comments
+				%i.icon.comment
+			= link_to :controller => 'swits', :action => 'show', :id => @swit.id, :remote => true do
+				%i.icon.comment
+
 			Reply
 			= @swit.comments.count
 		.swit-function
@@ -23,8 +27,8 @@
 			.swit-sweetcount{:id => "count#{@swit.id}"}
 				= @swit.sweets.count
 		.swit-function
-			= button_to '</3', {:controller => 'swits', :action => 'update', :id => @swit.id}, method: :put, params: {:mode => 'sour'}, remote: true
+			= button_to "<3", {:controller => 'swits', :action => 'update', :id => @swit.id}, method: :put, params: {:mode => 'sour'}, remote: true
 			Sour
 			.swit-sourcount{:id => "count#{@swit.id}"}
-				= @swit.sours.count
+				= @swit.sours.count		
 		

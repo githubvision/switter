@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :swits do
   	resources :comments
   end
-  resources :users
+  resources :users do
+    resources :comments
+  end
   resources :login
   resources :profile
   resources :home

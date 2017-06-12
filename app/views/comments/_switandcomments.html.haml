@@ -1,0 +1,21 @@
+.swit-comment-modal.ui.long.modal{:id => "swit#{@swit.id}"}
+	.swit-big
+		.swit-big-header
+			= @swit.user.first_name
+			= @swit.user.last_name
+			= @swit.user.username
+		.swit-big-content
+			= @swit.post
+		.swit-big-actions
+			Reply
+			Sour
+			Sweet
+	.comments
+		- @swit.comments.each do |c|
+			.comment
+				.comment-header
+					= c.user.first_name
+					= c.user.last_name
+					= c.user.username
+				.comment-content
+					= c.content
