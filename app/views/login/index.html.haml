@@ -1,5 +1,5 @@
-.ui.middle.aligned.center.aligned.grid
-    .column.six.wide
+#loginpage.ui.middle.aligned.center.aligned.grid
+    #login-panel.column.six.wide
         #login-hide
         #login-box
             %h2.teal.header Switter
@@ -19,7 +19,7 @@
             .ui.message
                 No account yet?
                 %a#signup-link Sign Up
-    .column.six.wide
+    #signup-panel.column.six.wide
         #signup-hide
         #signup-box
             = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:class => "ui form", :method => :post} do |u|

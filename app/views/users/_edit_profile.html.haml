@@ -2,37 +2,43 @@
 	.header
 		Edit Profile
 	.content
-		= form_for @user, :url => { :controller => 'users', :action => 'update', :id => session[:user_id]}, :html => { :method => :put}, class: "ui form" do |f|
+		= form_for @user, :url => { :controller => 'users', :action => 'update', :id => session[:user_id]}, :html => { :class => "ui form", :method => :put} do |f|
 			%h4.ui.dividing.header
 				Personal Information
-			.field
-				%label Name
-				.two.fields
-					.field
+			%label Name
+			.two.fields
+				.field
+					.ui.input
 						= f.text_field :first_name, placeholder: "First Name", value: @user.first_name
-					.field
+				.field
+					.ui.input
 						= f.text_field :last_name, placeholder: "Last Name", value: @user.last_name
 			.field
 				%label Birthday
-				= f.date_select :birthday, placeholder: "Birthday", value: @user.birthday
+				.ui.input
+					= f.date_select :birthday, placeholder: "Birthday", value: @user.birthday
 			.field
 				%label Bio
-				= f.text_area :bio, placeholder: "Bio", value: @user.bio
+				.ui.input
+					= f.text_area :bio, placeholder: "Bio", value: @user.bio, rows: "3"
 
 			%h4.ui.dividing.header
 				Account Information
 
 			.field
 				%label Username
-				= f.text_field :username, placeholder: "Username", value: @user.username
+				.ui.input
+					= f.text_field :username, placeholder: "Username", value: @user.username
 			.field
 				%label Password
-				= f.password_field :password, placeholder: "Password", value: @user.password
+				.ui.input
+					= f.password_field :password, placeholder: "Password", value: @user.password
 			.field
 				%label Email Address
-				= f.text_field :email, placeholder: "Email Address", value: @user.email
+				.ui.input
+					= f.text_field :email, placeholder: "Email Address", value: @user.email
 
-			= f.submit 'Save changes'
+			= f.submit 'Save changes', class: "ui fluid large teal button"
 
 
 
