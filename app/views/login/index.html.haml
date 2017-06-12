@@ -20,30 +20,41 @@
                 %a#signup-link Sign Up
     .column.six.wide
         #signup-box
-            = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:method => :post}, class: "ui form" do |f|
-                #signup-firstname
-                    = f.label(:first_name, "First Name")
-                    = f.text_field(:first_name)
-                #signup-firstname
-                    = f.label(:last_name, "Last Name")
-                    = f.text_field(:last_name)
-                #signup-username
-                    = f.label(:username, "Username")
-                    = f.text_field(:username)
-                #signup-password
-                    = f.label(:password, "Password")
-                    = f.password_field(:password)
-                #signup-email
-                    = f.label(:email, "Email Address")
-                    = f.text_field(:email)
-                #signup-bday
-                    = f.label(:birthday, "Birthday")
-                    = f.date_select(:birthday)
-                #signup-bio
-                    = f.label(:bio, "Bio")
-                    = f.text_area(:bio)
-                #signup-submit
-                    = f.submit("Sign Up")
+            = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:class => "ui form", :method => :post} do |u|
+            
+                .ui.stacked.segment
+                    %h4.ui.dividing.header Create Account
+                    %label Name
+                    .two.fields
+                        .field
+                            .ui.input
+                                = u.text_field :first_name, placeholder: "First Name"
+                        .field
+                            .ui.input
+                                = u.text_field :last_name, placeholder: "Last Name"
+                    %label Username
+                    .field
+                        .ui.input
+                            = u.text_field :username, placeholder: "Username"
+                    %label Password
+                    .field
+                        .ui.input
+                            = u.password_field :password, placeholder: "Password"
+                    %label Email Address
+                    .field
+                        .ui.input
+                            = u.text_field :email, placeholder: "Email Address", class: "ui fluid"
+                    %label Birthday
+                    .field
+                        .ui.input
+                            = u.date_select :birthday
+                    %label Bio
+                    .field
+                        .ui.input
+                            = u.text_area :bio, placeholder: "Describe yourself", rows: "2"
+
+
+                    = u.submit "SIGN UP", class: "ui fluid large teal button"
 
             .ui.message
                 Already have an account?
