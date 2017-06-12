@@ -46,7 +46,6 @@ $color-gray: #2A363B;
 
 #nav-right{
 	text-align: right!important;
-	// padding-top: 15px!important;
 }
 
 .nav-btn{
@@ -68,15 +67,31 @@ $color-gray: #2A363B;
 }
 
 #nav-title h1{
-	// padding-top: 10px!important;
 	margin: 0!important;
 }
 
+#main-holder{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	padding-top: 75px;
+}
+
 #main-content{
-	position: relative;
-	margin-top: 75px;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
 }
 
 a:hover{
 	background: transparent!important;
+}
+
+.swit-post a{
+	color: $color-red!important;
+	font-weight: bold!important;
+}
+
+.swit-post a:hover{
+	color: $color-pink!important;
 }

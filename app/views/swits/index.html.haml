@@ -1,5 +1,13 @@
-%h1 #{pluralize(@swits.count, "result")} for #{params[:to_match]}
+.ui.grid
+	#left-panel.four.wide.column
 
-- @swits.each do |s|
-  - @swit = s
-  = render :partial => 'swits/view_swits'
+	#center-panel.eight.wide.column
+		#profile-swits-title
+			%h4 
+				#{pluralize(@swits.count, "result")} for #{params[:to_match]}
+		#profile-swits
+			- @swits.each do |s|
+				- @swit = s
+				= render :partial => 'swits/switone'
+
+				

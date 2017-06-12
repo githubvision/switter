@@ -2,3 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "semantic-ui";
+$color-red: #E84A5F;
+
+#profile-swits-title{
+	padding: 10px;
+}
+
+.edit-profile-btn:hover{
+	background: $color-red;
+}

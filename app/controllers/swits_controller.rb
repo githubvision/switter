@@ -6,6 +6,8 @@ class SwitsController < ApplicationController
 
   def index
     @swits = Swit.where('post LIKE ?', "%#{params[:to_match]}%")
+    @swit = Swit.new
+    @commment = Comment.new
   end
 
   # GET /swits/1

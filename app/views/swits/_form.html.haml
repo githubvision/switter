@@ -1,8 +1,7 @@
 #create-swit
   = form_for @swit, :url => { :controller => 'swits', :action => 'create'}, :html => { :method => :post, :class => "ui form" }, remote: true do |f|
-    .swit-post
-      = f.label "CREATE SWIT", class: "createswit-label"
-      = f.text_area :post, placeholder: "What's sweet?", rows: "3"
+    = f.label "CREATE SWIT", class: "createswit-label"
+    = f.text_area :post, placeholder: "What's sweet?", rows: "4"
     .swit-submit
       = f.submit 'Swit', class: "ui teal button createswit-btn"
     

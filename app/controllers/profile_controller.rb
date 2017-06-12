@@ -4,6 +4,7 @@ class ProfileController < ApplicationController
 	def index
 		@user = User.find(session[:user_id])
 		@swits = User.find_by(id: session[:user_id]).swits.order('created_at DESC')
+		@comment = Comment.new
 		@swit = Swit.new
 	end
 

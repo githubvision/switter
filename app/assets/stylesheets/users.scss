@@ -1,3 +1,31 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "semantic-ui";
+
+$color-green: #99B898;
+$color-yellow: #FECEAB;
+$color-pink: #FF847C;
+$color-red: #E84A5F;
+$color-gray: #2A363B;
+
+#user-profile{
+	margin: 0!important;
+	padding: 10px;
+	background: $color-pink;
+}
+
+#profile-name{
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#profile-birthday, #profile-bio{
+	font-size: 14px;
+}
+
+.profile-label{
+	font-weight: bold;
+}

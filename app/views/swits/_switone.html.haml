@@ -25,13 +25,6 @@
 			ago
 		%div.swit-functions
 			.swit-function
-				= link_to :controller => 'swits', :action => 'show', :id => @swit.id, :remote => true, class: "ui labeled button view-comments" do
-					.ui.basic.blue.button
-						%i.icon.comment
-						%span.swit-repliescount{:id => "count#{@swit.id}"}
-							= @swit.comments.count
-						Replies
-			.swit-function
 				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true, class: "ui labeled button" do
 					.ui.red.button
 						%i.icon.map.pin
