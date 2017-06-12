@@ -1,16 +1,14 @@
 #create-swit
-= form_for @swit, :url => { :controller => 'swits', :action => 'create'}, :html => { :method => :post }, remote: true do |f|
-  %h3 Create Swit
-
-  .swit-post
-    = f.label :post
-    = f.text_area :post, class: "swit-create"
-  .swit-submit
-    = f.submit 'Swit'
-  
-  - if @swit.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@swit.errors.count, "error")} prohibited this swit from being saved:"
-      %ul
-        - @swit.errors.full_messages.each do |message|
-          %li= message
+  = form_for @swit, :url => { :controller => 'swits', :action => 'create'}, :html => { :method => :post, :class => "ui form" }, remote: true do |f|
+    .swit-post
+      = f.label "CREATE SWIT", class: "createswit-label"
+      = f.text_area :post, placeholder: "What's sweet?", rows: "3"
+    .swit-submit
+      = f.submit 'Swit', class: "ui teal button createswit-btn"
+    
+    - if @swit.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@swit.errors.count, "error")} prohibited this swit from being saved:"
+        %ul
+          - @swit.errors.full_messages.each do |message|
+            %li= message

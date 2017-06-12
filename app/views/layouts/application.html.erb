@@ -15,7 +15,7 @@
   	<% else %>
   		<div id="home-nav">
   			<div id="navbar"  class="ui grid">
-			<div class="nav-btn one wide column center aligned">
+			<div class="nav-btn one wide column  center aligned">
 				<%= link_to home_index_path do %>
 					<i class="home icon"></i>
 				<% end %>
@@ -40,7 +40,9 @@
 			</div>
 			</div>
 		</div>
-    	<%= yield %>
+		<div id="main-content">
+    		<%= yield %>
+    	$color-green
     <% end %>
     </div>
   </body>

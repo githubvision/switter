@@ -7,39 +7,43 @@
 		.swit-username
 			@
 			= @swit.user.username
-	%div.swit-post
-		- @str_ind =  @swit.post =~ /{[^{}]+}/
-		- @content = @swit.post
-		- while @str_ind != nil do
-			= @content[0..@str_ind-1]
-			- @match = @content[/{[^{}]+}/]
-			= link_to :controller => 'swits', :action => 'index', :to_match => "#{@match}" do
-				= @match
-			- @next_ind = @str_ind + @match.length
-			- @content = @content[@next_ind..-1]
-			- @str_ind = @content =~ /{[^{}]+}/
-		= @content
-	%div.swit-timestamp
-		= time_ago_in_words(@swit.created_at) 
-		ago
-	%div.swit-functions
-		.swit-function
-			= link_to :controller => 'swits', :action => 'show', :id => @swit.id, :remote => true do
-				%i.icon.comment
-
-			Comments
-			.swit-repliescount{:id => "count#{@swit.id}"}
-				= @swit.comments.count
-		.swit-function
-			= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true do
-				%i.icon.thumbs.up
-			Sweet
-			.swit-sweetcount{:id => "count#{@swit.id}"}
-				= @swit.sweets.count
-		.swit-function
-			= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sour'}, :remote => true do
-				%i.icon.thumbs.down
-			Sour
-			.swit-sourcount{:id => "count#{@swit.id}"}
-				= @swit.sours.count		
-		
+	%div.swit-contents
+		%div.swit-post
+			- @str_ind =  @swit.post =~ /{[^{}]+}/
+			- @content = @swit.post
+			- while @str_ind != nil do
+				= @content[0..@str_ind-1]
+				- @match = @content[/{[^{}]+}/]
+				= link_to :controller => 'swits', :action => 'index', :to_match => "#{@match}" do
+					= @match
+				- @next_ind = @str_ind + @match.length
+				- @content = @content[@next_ind..-1]
+				- @str_ind = @content =~ /{[^{}]+}/
+			= @content
+		%div.swit-timestamp
+			= time_ago_in_words(@swit.created_at) 
+			ago
+		%div.swit-functions
+			.swit-function
+				= link_to :controller => 'swits', :action => 'show', :id => @swit.id, :remote => true, class: "ui labeled button view-comments" do
+					.ui.basic.blue.button
+						%i.icon.comment
+						Replies
+						%span.swit-repliescount{:id => "count#{@swit.id}"}
+							= @swit.comments.count
+			.swit-function
+				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true, class: "ui labeled button" do
+					.ui.red.button
+						%i.icon.heart
+						Sweet
+					%a.ui.basic.red.left.pointing.label
+						.swit-sweetcount{:id => "count#{@swit.id}"}
+							= @swit.sweets.count
+			.swit-function
+				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sour'}, :remote => true, class: "ui labeled button" do
+					.ui.yellow.button
+						%i.icon.lemon
+						Sour
+					%a.ui.basic.yellow.left.pointing.label
+						.swit-sourcount{:id => "count#{@swit.id}"}
+							= @swit.sours.count

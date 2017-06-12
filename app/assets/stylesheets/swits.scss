@@ -2,10 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "semantic-ui";
+
+$color-green: #99B898;
+$color-yellow: #FECEAB;
+$color-pink: #FF847C;
+$color-red: #E84A5F;
+$color-gray: #2A363B;
+
 .swit{
 	border: solid;
+	border-width: 2px;
+	border-color: #d9d5de;
+	border-radius: 3px;
 	margin: 10px;
-	padding: 10px;	
+	padding: 10px;
+	padding-bottom: 50px;
+	font-size: 16px;
+}
+
+.swit-post{
+	font-size: 16px;
+}
+
+.swit-timestamp{
+	color: $color-gray;
+	font-size: 14px;
+}
+
+.swit-nametag{
 }
 
 .swit-name{
@@ -15,9 +40,22 @@
 }
 
 .swit-functions{
-	display: block;
+	height: auto;
+	padding-top: 10px;
 }
 
 .swit-function{
+	height: 30px!important;
 	width: auto;
+	float: left;
+}
+
+.ui.labeled.button .ui.button{
+	height: 32px!important;
+	padding-top: 9px!important;
+}
+
+.view-comments .ui.basic.blue.button{
+	padding: 10px!important;
+	height: 30px!important;
 }

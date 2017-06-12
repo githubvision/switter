@@ -1,11 +1,7 @@
 .ui.grid
-	.four.wide.column
-		%h1
-			Profile
-		= render 'users/profile'
+	#left-panel.four.wide.column
 		= render 'swits/form'
-	.eight.wide.column
-		%h1 Swits
+	#center-panel.eight.wide.column
 		#profile-swits
 			- @swits.each do |s|
 				- @swit = s
