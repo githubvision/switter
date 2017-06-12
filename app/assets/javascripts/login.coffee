@@ -3,3 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "turbolinks:load", ->
+	$('#signup-link').on 'click', ->
+	  $('#login-box').css 'display', 'none'
+	  $('#signup-box').css 'display', ''
+	  return
+
+	$('#login-link').on 'click', ->
+	  $('#signup-box').css 'display', 'none'
+	  $('#login-box').css 'display', ''
+	  return

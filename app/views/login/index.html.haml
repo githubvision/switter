@@ -1,48 +1,52 @@
-#login-nav
-    %h3 Log in
-    = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => { :method => :post } do |f|
-        #login-username
-            = f.label(:username, "Username")
-            = f.text_field(:username)
-        #login-password
-            = f.label(:password, "Password")
-            = f.password_field(:password)
-        #login-submit
-            = f.submit("Log In")
-%br
-%br
+.ui.middle.aligned.center.aligned.grid
+    .column.six.wide
+        %h2.teal.header Switter
+        #login-box
+            = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => {:class => "ui form left aligned", :method => :post }, class: "ui large form " do |f|
+                .ui.stacked.segment
+                    .field
+                        .ui.left.icon.input
+                            %i.icon.user
+                            = f.text_field :username, placeholder: "Username", class: "ui fluid"
 
-#login-signup
-    %h3 Sign up
-    = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:method => :post}, class: "ui form" do |f|
+                    .field
+                        .ui.left.icon.input
+                            %i.icon.lock
+                            = f.password_field :password, placeholder: "Password"
 
-        #signup-firstname
-            = f.label(:first_name, "First Name")
-            = f.text_field(:first_name)
-        #signup-firstname
-            = f.label(:last_name, "Last Name")
-            = f.text_field(:last_name)
-        #signup-username
-            = f.label(:username, "Username")
-            = f.text_field(:username)
-        #signup-password
-            = f.label(:password, "Password")
-            = f.password_field(:password)
-        #signup-email
-            = f.label(:email, "Email Address")
-            = f.text_field(:email)
-        #signup-bday
-            = f.label(:birthday, "Birthday")
-            = f.date_select(:birthday)
-        #signup-bio
-            = f.label(:bio, "Bio")
-            = f.text_area(:bio)
-        #signup-submit
-            = f.submit("Sign Up")
+                    = f.submit "LOG IN", class: "ui fluid large teal button"
+            .ui.message
+                No account yet?
+                %a#signup-link Sign Up
+    .column.six.wide
+        #signup-box
+            = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:method => :post}, class: "ui form" do |f|
+                #signup-firstname
+                    = f.label(:first_name, "First Name")
+                    = f.text_field(:first_name)
+                #signup-firstname
+                    = f.label(:last_name, "Last Name")
+                    = f.text_field(:last_name)
+                #signup-username
+                    = f.label(:username, "Username")
+                    = f.text_field(:username)
+                #signup-password
+                    = f.label(:password, "Password")
+                    = f.password_field(:password)
+                #signup-email
+                    = f.label(:email, "Email Address")
+                    = f.text_field(:email)
+                #signup-bday
+                    = f.label(:birthday, "Birthday")
+                    = f.date_select(:birthday)
+                #signup-bio
+                    = f.label(:bio, "Bio")
+                    = f.text_area(:bio)
+                #signup-submit
+                    = f.submit("Sign Up")
 
-        - if @user.errors.any?
-            #error_explanation
-                %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-                %ul
-                    - @user.errors.full_messages.each do |message|
-                        %li= message
+            .ui.message
+                Already have an account?
+                %a#login-link Log In
+
+
