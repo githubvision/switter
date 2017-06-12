@@ -1,7 +1,8 @@
 .ui.middle.aligned.center.aligned.grid
     .column.six.wide
-        %h2.teal.header Switter
+        #login-hide
         #login-box
+            %h2.teal.header Switter
             = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => {:class => "ui form left aligned", :method => :post }, class: "ui large form " do |f|
                 .ui.stacked.segment
                     .field
@@ -19,9 +20,10 @@
                 No account yet?
                 %a#signup-link Sign Up
     .column.six.wide
+        #signup-hide
         #signup-box
             = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:class => "ui form", :method => :post} do |u|
-            
+
                 .ui.stacked.segment
                     %h4.ui.dividing.header Create Account
                     %label Name

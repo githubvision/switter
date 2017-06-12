@@ -14,19 +14,31 @@
 		<%= yield %>
   	<% else %>
   		<div id="home-nav">
-			<h1>
-			Switboard
-			</h1>
-			<%= link_to 'Home', home_index_path %>
-			<%= link_to 'Notifications', @home %>
-			<%= link_to 'Profile', { :controller => 'profile', :action => 'show', :id => session[:user_id]} %>
-
-			<%= button_to home_path(:action => 'destroy', :id => session[:user_id]), :method => :delete, class: "ui animated button" do %>
-				<div class="visible content">Log Out</div>
-				<div class="hidden content">
-			    	<i class="sign out icon"></i>
-				</div>
-			<% end %>
+  			<div id="navbar"  class="ui grid">
+			<div class="nav-btn one wide column center aligned">
+				<%= link_to home_index_path do %>
+					<i class="home icon"></i>
+				<% end %>
+			</div>
+			<div class="nav-btn one wide column center aligned">
+				<%= link_to profile_path(:action => 'show', :id => session[:user_id]) do %>
+					<i class="user icon"></i>
+				<% end %>
+			</div>
+			<div id="nav-title" class="eight wide column middle aligned">
+				<h1>
+				Switter
+				</h1>
+			</div>
+			<div id="nav-right" class="six wide column middle aligned">
+				<%= button_to home_path(:action => 'destroy', :id => session[:user_id]), :method => :delete, class: "ui animated button" do %>
+					<div class="visible content">Log Out</div>
+					<div class="hidden content">
+				    	<i class="sign out icon"></i>
+					</div>
+				<% end %>
+			</div>
+			</div>
 		</div>
     	<%= yield %>
     <% end %>
