@@ -3,6 +3,3 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "turbolinks:load", ->
-	$('.show-comments').on 'click', -> 
-  		$('#swit-comment-modal').modal 'show'
-  		return

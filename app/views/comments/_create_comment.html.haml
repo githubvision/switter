@@ -1,0 +1,9 @@
+.create-comment
+= form_for @comment, :url => { :controller => 'comments', :action => 'create', :swit_id => @swit.id }, :html => { :method => :post }, remote: true do |f|
+
+  %h3 CREATE COMMENT
+  .swit-post
+    = f.label :content
+    = f.text_area :content, class: "comment-textarea"
+  .swit-submit
+    = f.submit 'Create Comment'

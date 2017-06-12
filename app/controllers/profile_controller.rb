@@ -9,6 +9,7 @@ class ProfileController < ApplicationController
 		@user = User.find(params[:id])
 		@swits = User.find(params[:id]).swits.order('created_at DESC')
 		@swit = Swit.new
+		@comment = Comment.new
 	end	
 
 end

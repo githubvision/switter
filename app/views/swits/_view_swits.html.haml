@@ -14,20 +14,21 @@
 		ago
 	%div.swit-functions
 		.swit-function
-			%button.show-comments
-				%i.icon.comment
 			= link_to :controller => 'swits', :action => 'show', :id => @swit.id, :remote => true do
 				%i.icon.comment
 
-			Reply
-			= @swit.comments.count
+			Comments
+			.swit-repliescount{:id => "count#{@swit.id}"}
+				= @swit.comments.count
 		.swit-function
-			= button_to '<3', {:controller => 'swits', :action => 'update', :id => @swit.id}, method: :put, params: {:mode => 'sweet'}, class: "sweet_btn", remote: true
+			= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true do
+				%i.icon.thumbs.up
 			Sweet
 			.swit-sweetcount{:id => "count#{@swit.id}"}
 				= @swit.sweets.count
 		.swit-function
-			= button_to "<3", {:controller => 'swits', :action => 'update', :id => @swit.id}, method: :put, params: {:mode => 'sour'}, remote: true
+			= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sour'}, :remote => true do
+				%i.icon.thumbs.down
 			Sour
 			.swit-sourcount{:id => "count#{@swit.id}"}
 				= @swit.sours.count		

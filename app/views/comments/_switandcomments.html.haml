@@ -1,4 +1,4 @@
-.swit-comment-modal.ui.long.modal{:id => "swit#{@swit.id}"}
+.swit-comment-modal.ui.long.modal{:id => "swit#{@swit.id}", :data => { :reload => true }}
 	.swit-big
 		.swit-big-header
 			= @swit.user.first_name
@@ -6,16 +6,26 @@
 			= @swit.user.username
 		.swit-big-content
 			= @swit.post
-		.swit-big-actions
-			Reply
-			Sour
-			Sweet
+		.swit-big-timestamp
+			= time_ago_in_words(@swit.created_at) 
+			ago
+		.swit-big-functions
+			.swit-big-function
+				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true do
+					%i.icon.thumbs.up
+				Sweet
+				.swit-sweetcount{:id => "count#{@swit.id}"}
+					= @swit.sweets.count
+			.swit-big-function
+				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sour'}, :remote => true do
+					%i.icon.thumbs.down
+				Sour
+				.swit-sourcount{:id => "count#{@swit.id}"}
+					= @swit.sours.count		
 	.comments
-		- @swit.comments.each do |c|
-			.comment
-				.comment-header
-					= c.user.first_name
-					= c.user.last_name
-					= c.user.username
-				.comment-content
-					= c.content
+		- @swit.comments.order('created_at DESC').each do |c|
+			- @comment = c
+			= render :partial => 'comments/comment'
+
+	.write-comment
+		= render :partial => 'comments/create_comment'
