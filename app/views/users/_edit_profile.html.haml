@@ -1,0 +1,40 @@
+#edit-profile-modal.ui.small.modal
+	.header
+		Edit Profile
+	.content
+		= form_for @user, :url => { :controller => 'users', :action => 'update', :id => session[:user_id]}, :html => { :method => :put}, class: "ui form" do |f|
+			%h4.ui.dividing.header
+				Personal Information
+			.field
+				%label Name
+				.two.fields
+					.field
+						= f.text_field :first_name, placeholder: "First Name", value: @user.first_name
+					.field
+						= f.text_field :last_name, placeholder: "Last Name", value: @user.last_name
+			.field
+				%label Birthday
+				= f.date_select :birthday, placeholder: "Birthday", value: @user.birthday
+			.field
+				%label Bio
+				= f.text_area :bio, placeholder: "Bio", value: @user.bio
+
+			%h4.ui.dividing.header
+				Account Information
+
+			.field
+				%label Username
+				= f.text_field :username, placeholder: "Username", value: @user.username
+			.field
+				%label Password
+				= f.password_field :password, placeholder: "Password", value: @user.password
+			.field
+				%label Email Address
+				= f.text_field :email, placeholder: "Email Address", value: @user.email
+
+			= f.submit 'Save changes'
+
+
+
+
+

@@ -10,6 +10,14 @@ class ProfileController < ApplicationController
 		@swits = User.find(params[:id]).swits.order('created_at DESC')
 		@swit = Swit.new
 		@comment = Comment.new
+		@newuser = User.new
 	end	
+
+	def edit
+		@user = User.find(params[:id])
+		respond_to do |format|
+			format.js
+		end
+	end
 
 end
