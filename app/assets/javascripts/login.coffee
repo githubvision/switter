@@ -23,3 +23,13 @@ $(document).on "turbolinks:load", ->
 	  $('#signup-hide').css 'display', ''
 
 	  return
+
+	$('.swit-text-area').on 'keyup', ->
+		length = $(this).val().length;
+		length = 140 - length;
+		if length < 0
+		  $('#swit-charcount').html '<span style="color: red;">' + length + '</span>'
+		else
+		  $('#swit-charcount').html length
+		
+		return
