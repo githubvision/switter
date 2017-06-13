@@ -6,7 +6,7 @@
     %span  /140 characters
     %span#create-swit-error{:style => "color: red;"} 
     .swit-submit
-      = f.submit 'Swit', class: "ui teal button createswit-btn"
+      = f.submit 'Swit', class: "ui teal disabled button createswit-btn"
     
     - if @swit.errors.any?
       #error_explanation

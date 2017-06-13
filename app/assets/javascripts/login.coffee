@@ -26,6 +26,13 @@ $(document).on "turbolinks:load", ->
 
 	$('.swit-text-area').on 'keyup', ->
 		length = $(this).val().length;
+		if length > 0
+			if $('.createswit-btn').hasClass('disabled')
+		  		$('.createswit-btn').removeClass('disabled');
+		else
+			if $('.createswit-btn').hasClass('disabled') == false
+		  		$('.createswit-btn').addClass('disabled');
+		  	
 		length = 140 - length;
 		if length < 0
 		  $('#swit-charcount').html '<span style="color: red;">' + length + '</span>'
