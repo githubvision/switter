@@ -1,8 +1,10 @@
 #loginpage.ui.middle.aligned.center.aligned.grid
     #login-panel.column.six.wide
-        #login-hide
+        #login-hide.middle.aligned
+            Get access to the sweetest swits right now.
         #login-box
-            %h2.teal.header Switter
+            %h2.login-header 
+                Switter.
             = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => {:class => "ui form left aligned", :method => :post }, class: "ui large form login-form" do |f|
                 .ui.stacked.segment
                     .field
@@ -20,8 +22,11 @@
                 No account yet?
                 %a#signup-link Sign Up
     #signup-panel.column.six.wide
-        #signup-hide
+        #signup-hide.middle.aligned
+            Know the latest swits.
         #signup-box
+            %h2.login-header 
+                Sign up.
             = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:class => "ui form", :method => :post} do |u|
 
                 .ui.stacked.segment
