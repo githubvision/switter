@@ -7,7 +7,10 @@
 		#profile-swits
 			%h4 
 				= "#{@user.first_name}'s Swits"
-			- @swits.each do |s|
-				- @swit = s
-				= render :partial => 'swits/view_swits'
-				= render :partial => 'comments/switandcomments'
+			- if @swits != nil
+				- @swits.each do |s|
+					- @swit = s
+					= render :partial => 'swits/view_swits'
+					= render :partial => 'comments/switandcomments'
+			- else
+				%h4 No swits yet.

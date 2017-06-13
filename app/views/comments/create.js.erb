@@ -1,4 +1,3 @@
-console.log("Content: <%= params[:content] %>")
 $(".comment-textarea").val("");
 $("#swit<%= @swit.id %> .comments").prepend("<%= escape_javascript(render :partial => 'comments/comment') %>")
 $(".comment-textarea").val("");

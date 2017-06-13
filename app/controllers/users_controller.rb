@@ -31,7 +31,8 @@ class UsersController < ApplicationController
       else
         if @user.save
           session[:user_id] = @user.id
-          redirect_to home_index_path
+          @error = "false"
+          format.js
         else
           @error = "Please fill up all the fields."
           format.js

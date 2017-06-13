@@ -45,6 +45,18 @@ $(document).on "turbolinks:load", ->
 		
 		return
 
+	$('.comment-textarea').on 'keyup', ->
+		length = $(this).val().length;
+		if length > 0
+			if $('.createcomm-btn').hasClass('disabled')
+		  		$('.createcomm-btn').removeClass('disabled');
+		else
+			if $('.createcomm-btn').hasClass('disabled') == false
+		  		$('.createcomm-btn').addClass('disabled');
+
+		
+		return
+
 	$('.login-form').form({
 		on: 'blur',
 		fields: {

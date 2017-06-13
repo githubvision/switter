@@ -1,1 +1,5 @@
-$('.form-errors').html('<%= escape_javascript(@error)%>');
+<% if @error != 'false' %>
+	$('.form-errors').html('<%= escape_javascript(@error)%>');
+<% else %>
+	window.location = '/home';
+<% end %>

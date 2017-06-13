@@ -28,7 +28,8 @@ class LoginController < ApplicationController
 						if user != nil
 						 	if user.password == params[:login][:password]
 								session[:user_id] = user.id
-								redirect_to home_index_path
+								@error = "false"
+								format.js
 							else
 								@error = "Password did not match username."
 								format.js
