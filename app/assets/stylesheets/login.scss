@@ -9,6 +9,10 @@ $color-pink: #FF847C;
 $color-red: #E84A5F;
 $color-gray: #2A363B;
 
+#login-link:hover, #signup-link:hover{
+	cursor: pointer!important;
+}
+
 #login-box, #signup-box{
 	text-align: left!important;
 	padding: 50px!important;
@@ -64,5 +68,5 @@ $color-gray: #2A363B;
 	font-size: 56px;
 	font-weight: bold;
 	text-align: center;
-	text-shadow: 2px 2px 2px #d9d5de;	
+	text-shadow: 2px 2px 2px black;	
 }

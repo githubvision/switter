@@ -5,7 +5,12 @@ class User < ApplicationRecord
 		length: {
 			minimum: 8
 		}
-	validates :email, presence:true
+	validates :first_name, presence:true
+	validates :last_name, presence:true
 	validates :username, presence:true
+	validates :password, presence:true
+	validates :email, presence:true
 	validates :birthday, presence:true
+	validates :bio, presence:true
+
 end

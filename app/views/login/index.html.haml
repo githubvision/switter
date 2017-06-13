@@ -5,19 +5,21 @@
         #login-box
             %h2.login-header 
                 Switter.
-            = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => {:class => "ui form left aligned", :method => :post }, class: "ui large form login-form" do |f|
+            = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => {:class => "ui form left aligned", :method => :post }, class: "ui large form login-form", remote: true do |f|
                 .ui.stacked.segment
                     .field
                         .ui.left.icon.input
                             %i.icon.user
-                            = f.text_field :username, placeholder: "Username", class: "ui fluid"
+                            = f.text_field :username, placeholder: "Username", class: "ui fluid login-field"
 
                     .field
                         .ui.left.icon.input
                             %i.icon.lock
-                            = f.password_field :password, placeholder: "Password"
+                            = f.password_field :password, placeholder: "Password", class: "login-field"
 
+                    .form-errors{:style => "color: red; margin-bottom: 10px;"}
                     = f.submit "LOG IN", class: "ui submit fluid large teal button"
+
             .ui.message
                 No account yet?
                 %a#signup-link Sign Up
@@ -27,7 +29,7 @@
         #signup-box
             %h2.login-header 
                 Sign up.
-            = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:class => "ui form", :method => :post} do |u|
+            = form_for @user, :url => { :controller => 'users', :action => 'create'}, :html => {:class => "ui form", :method => :post}, remote: true do |u|
 
                 .ui.stacked.segment
                     %h4.ui.dividing.header Create Account
@@ -35,32 +37,32 @@
                     .two.fields
                         .field
                             .ui.input
-                                = u.text_field :first_name, placeholder: "First Name"
+                                = u.text_field :first_name, placeholder: "First Name", class: "login-field"
                         .field
                             .ui.input
-                                = u.text_field :last_name, placeholder: "Last Name"
+                                = u.text_field :last_name, placeholder: "Last Name", class: "login-field"
                     %label Username
                     .field
                         .ui.input
-                            = u.text_field :username, placeholder: "Username"
+                            = u.text_field :username, placeholder: "Username", class: "login-field"
                     %label Password
                     .field
                         .ui.input
-                            = u.password_field :password, placeholder: "Password"
+                            = u.password_field :password, placeholder: "Password", class: "login-field"
                     %label Email Address
                     .field
                         .ui.input
-                            = u.text_field :email, placeholder: "Email Address", class: "ui fluid"
+                            = u.text_field :email, placeholder: "Email Address", class: "ui fluid login-field"
                     %label Birthday
                     .field
                         .ui.input
-                            = u.date_select :birthday
+                            = u.date_select :birthday, class: "login-field"
                     %label Bio
                     .field
                         .ui.input
-                            = u.text_area :bio, placeholder: "Describe yourself", rows: "2"
+                            = u.text_area :bio, placeholder: "Describe yourself", rows: "2", class: "login-field"
 
-
+                    .form-errors{:style => "color: red; margin-bottom: 10px;"}
                     = u.submit "SIGN UP", class: "ui fluid large teal button"
 
             .ui.message

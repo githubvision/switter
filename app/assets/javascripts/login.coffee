@@ -24,6 +24,10 @@ $(document).on "turbolinks:load", ->
 
 	  return
 
+	$('.login-field').on 'click', ->
+		$('.form-errors').html(' ')
+		return
+
 	$('.swit-text-area').on 'keyup', ->
 		length = $(this).val().length;
 		if length > 0
@@ -32,7 +36,7 @@ $(document).on "turbolinks:load", ->
 		else
 			if $('.createswit-btn').hasClass('disabled') == false
 		  		$('.createswit-btn').addClass('disabled');
-		  	
+
 		length = 140 - length;
 		if length < 0
 		  $('#swit-charcount').html '<span style="color: red;">' + length + '</span>'

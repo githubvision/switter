@@ -23,12 +23,20 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to home_index_path
-    else
-      redirect_to login_index_path
+    respond_to do |format|
+      @user = User.new(user_params)
+      if @user.password.length < 8
+        @error = "A password must be at least 8 characters."
+        format.js
+      else
+        if @user.save
+          session[:user_id] = @user.id
+          redirect_to home_index_path
+        else
+          @error = "Please fill up all the fields."
+          format.js
+        end
+      end
     end
   end
 
