@@ -33,3 +33,28 @@ $(document).on "turbolinks:load", ->
 		  $('#swit-charcount').html length
 		
 		return
+
+	$('.login-form').form({
+		on: 'blur',
+		fields: {
+			'login[username]': {
+				identifier	: 'login[username]',
+				rules : [
+					{
+						type: 'empty',
+						prompt: 'Please enter username.'
+					}
+				]
+			},
+
+			'login[password]': {
+				identifier	: 'login[password]',
+				rules : [
+					{
+						type: 'empty',
+						prompt: 'Please enter username.'
+					}
+				]
+			}
+		}
+	});

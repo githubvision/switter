@@ -3,7 +3,7 @@
         #login-hide
         #login-box
             %h2.teal.header Switter
-            = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => {:class => "ui form left aligned", :method => :post }, class: "ui large form " do |f|
+            = form_for :login, :url => { :controller => 'login', :action => 'create'}, :html => {:class => "ui form left aligned", :method => :post }, class: "ui large form login-form" do |f|
                 .ui.stacked.segment
                     .field
                         .ui.left.icon.input
@@ -15,7 +15,7 @@
                             %i.icon.lock
                             = f.password_field :password, placeholder: "Password"
 
-                    = f.submit "LOG IN", class: "ui fluid large teal button"
+                    = f.submit "LOG IN", class: "ui submit fluid large teal button"
             .ui.message
                 No account yet?
                 %a#signup-link Sign Up

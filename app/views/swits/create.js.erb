@@ -1,2 +1,8 @@
-$("#profile-swits").prepend("<%= escape_javascript(render :partial => 'swits/view_swits') %>")
-$(".swit-create").val("");
+<% if @swit.errors.any? %>
+	console.log("asdfasdf");
+	$("#create-swit-error").html("Post too long");
+    
+<% else %>
+	$("#profile-swits").prepend("<%= escape_javascript(render :partial => 'swits/view_swits') %>")
+	$(".swit-create").val("");
+<% end %>

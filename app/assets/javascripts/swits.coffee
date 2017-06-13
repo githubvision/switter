@@ -3,3 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "turbolinks:load", ->
+	$('.swit-text-area').on 'click', ->
+		$('#create-swit-error').html(' ');
+		return

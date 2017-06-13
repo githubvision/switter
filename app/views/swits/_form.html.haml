@@ -4,6 +4,7 @@
     = f.text_area :post, placeholder: "What's sweet?", rows: "4", class: "swit-text-area"
     %span#swit-charcount 140
     %span  /140 characters
+    %span#create-swit-error{:style => "color: red;"} 
     .swit-submit
       = f.submit 'Swit', class: "ui teal button createswit-btn"
     

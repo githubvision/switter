@@ -4,10 +4,10 @@
 			= render 'swits/form'
 	#center-panel.eight.wide.column
 		= render 'users/profile'
+		#profile-swits-title
+			%h4 
+				= "#{@user.first_name}'s Swits"
 		#profile-swits
-			#profile-swits-title
-				%h4 
-					= "#{@user.first_name}'s Swits"
 			- @swits.each do |s|
 				- @swit = s
 				= render :partial => 'swits/view_swits'

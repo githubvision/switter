@@ -41,7 +41,7 @@ class SwitsController < ApplicationController
       if @swit.save
         format.js
       else
-        redirect_to controller: 'profile', action: 'show', id: session[:user_id]
+        format.js
       end
     end
   end
