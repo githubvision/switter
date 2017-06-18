@@ -36,11 +36,12 @@
 				%a.ui.basic.yellow.left.pointing.label
 					.swit-sourcount{:id => "count#{@swit.id}"}
 						= @swit.sours.count		
-.write-comment
-	= render :partial => 'comments/create_comment'
 	
 .comments
-	- @swit.comments.order('created_at DESC').each do |c|
+	- @swit.comments.each do |c|
 		- @comment = c
 		= render :partial => 'comments/comment'
+
+.write-comment
+	= render :partial => 'comments/create_comment'
 
