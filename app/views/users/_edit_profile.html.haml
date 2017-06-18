@@ -36,7 +36,7 @@
 			.field
 				%label Email Address
 				.ui.input
-					= f.text_field :email, placeholder: "Email Address", value: @user.email
+					= f.email_field :email, placeholder: "Email Address", value: @user.email
 
 			= f.submit 'Save changes', class: "ui fluid large teal button"
 

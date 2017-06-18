@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 	before_action :require_login
 	
 	def show
+		@comment = Comment.new
 		@swit = Swit.find(params[:swit_id])
 		respond_to do |format|
 			format.js

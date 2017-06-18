@@ -11,7 +11,9 @@
 			- if @swits != nil
 				- @swits.each do |s|
 					- @swit = s
+					- @comments = @swit.comments
 					= render :partial => 'swits/view_swits'
-					= render :partial => 'comments/switandcomments'
 			- else
 				%h4 No swits yet.
+		
+#swit-comment-modal.ui.long.modal

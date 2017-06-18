@@ -30,7 +30,7 @@ $(document).on "turbolinks:load", ->
 
 	$('.swit-text-area').on 'keyup', ->
 		length = $(this).val().length;
-		if length > 0
+		if length > 0 && length < 141
 			if $('.createswit-btn').hasClass('disabled')
 		  		$('.createswit-btn').removeClass('disabled');
 		else

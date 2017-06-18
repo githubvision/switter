@@ -25,8 +25,8 @@
 			ago
 		%div.swit-functions
 			.swit-function
-				= link_to :controller => 'swits', :action => 'show', :id => @swit.id, :remote => true, class: "ui labeled button view-comments" do
-					.ui.basic.blue.button
+				= link_to :controller => 'swits', :action => 'show', :id => @swit.id, data: { swit: @swit, id: @swit.id }, :remote => true, class: "ui labeled button" do
+					.ui.basic.blue.button.show-comments{ data: { swit: @swit, id: @swit.id }}
 						%span.swit-repliescount{:id => "count#{@swit.id}"}
 							= @swit.comments.count
 						- if @swit.comments.count > 1

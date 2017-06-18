@@ -5,7 +5,7 @@ class SwitsController < ApplicationController
   # GET /swits.json
 
   def index
-    @swits = Swit.where('post LIKE ?', "%#{params[:to_match]}%")
+    @swits = Swit.where('post LIKE ?', "%#{params[:to_match]}%").order('created_at DESC');
     @swit = Swit.new
     @commment = Comment.new
   end
@@ -13,9 +13,10 @@ class SwitsController < ApplicationController
   # GET /swits/1
   # GET /swits/1.json
   def show
-    @swit = Swit.find(params[:id])
-    
     respond_to do |format|
+      @swit = Swit.find(params[:id])
+      @comments = @swit.comments
+      @comment = Comment.new
       format.js
     end
   end
@@ -36,6 +37,7 @@ class SwitsController < ApplicationController
     @swit.sweets_count = 0
     @swit.sours_count = 0
     @swit.user_id = session[:user_id]
+    @comment = Comment.new
 
     respond_to do |format|
       if @swit.save

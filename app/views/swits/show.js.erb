@@ -1,1 +1,5 @@
-$('.swit-comment-modal#swit<%=@swit.id%>').modal('show');
+console.log("ID: <%= @swit.id %>")
+$('#swit-comment-modal').html('');
+$('#swit-comment-modal').html("<%= escape_javascript(render :partial => 'comments/switandcomments')%>");
+
+$('#swit-comment-modal').modal('show');
