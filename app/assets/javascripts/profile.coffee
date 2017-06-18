@@ -6,3 +6,7 @@ $(document).on "turbolinks:load", ->
 	$('#trigger').on 'click', -> 
   		$('#triggered').modal 'show'
   		return
+
+  	$('.message .close').on 'click', ->
+    	$(this).closest('.message').transition('fade');
+    	return

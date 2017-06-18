@@ -3,6 +3,8 @@
 		- if @user.id == session[:user_id]
 			= render 'swits/form'
 	#center-panel.eight.wide.column
+		- if @error == 'true'
+			= render 'profile/error'
 		= render 'users/profile'
 		#profile-swits-title
 			%h4 

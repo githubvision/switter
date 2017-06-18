@@ -45,7 +45,15 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update    
     @user.update(user_params)
-    redirect_to profile_path(:id => @user.id)
+    if @user.save
+      redirect_to profile_path(:id => @user.id, :error => false, :error_message => 0)
+    else
+      if @user.password.length < 8
+        redirect_to profile_path(:id => @user.id, :error => true, :error_message => 1)
+      else
+        redirect_to profile_path(:id => @user.id, :error => true, :error_message => 2)
+      end
+    end
   end
 
   # DELETE /users/1

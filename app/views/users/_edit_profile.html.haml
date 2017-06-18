@@ -3,7 +3,7 @@
 		Edit Profile
 	.content
 		= form_for @user, :url => { :controller => 'users', :action => 'update', :id => session[:user_id]}, :html => { :class => "ui form", :method => :put} do |f|
-			%h4.ui.dividing.header
+			%h4.ui.dividing.header.header-edit
 				Personal Information
 			%label Name
 			.two.fields

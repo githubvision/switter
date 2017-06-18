@@ -9,6 +9,17 @@ class ProfileController < ApplicationController
 	end
 
 	def show
+		@error = params[:error]
+		@error_message = params[:error_message]
+		
+		if @error_message == 1
+			@error_message = "Password must be at least 8 characters."
+		elsif @error_message == 2
+			@error_message = "Password fill-up all the fields."
+		else
+			@error_message = nil
+		end
+		
 		@user = User.find(params[:id])
 		@swits = User.find(params[:id]).swits.order('created_at DESC')
 		@swit = Swit.new
