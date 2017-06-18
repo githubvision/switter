@@ -1,4 +1,3 @@
-
 .swit-big
 	.swit-big-header
 		%span.swit-big-name
@@ -8,7 +7,8 @@
 		- @str_ind =  @swit.post =~ /{[^{}]+}/
 		- @content = @swit.post
 		- while @str_ind != nil do
-			= @content[0..@str_ind-1]
+			- if @str_ind != 0
+				= @content[0..@str_ind-1]
 			- @match = @content[/{[^{}]+}/]
 			= link_to @match
 			- @next_ind = @str_ind + @match.length
