@@ -33,7 +33,7 @@
 
                 .ui.stacked.segment
                     %h4.ui.dividing.header Create Account
-                    %label Name
+                    %label{ :style => "font-weight: bold;"} Name
                     .two.fields
                         .field
                             .ui.input
@@ -41,24 +41,25 @@
                         .field
                             .ui.input
                                 = u.text_field :last_name, placeholder: "Last Name", class: "login-field"
-                    %label Username
                     .field
+                        %label Username
                         .ui.input
                             = u.text_field :username, placeholder: "Username", class: "login-field"
-                    %label Password
+                
                     .field
+                        %label Password
                         .ui.input
                             = u.password_field :password, placeholder: "Password", class: "login-field"
-                    %label Email Address
                     .field
+                        %label Email Address
                         .ui.input
                             = u.text_field :email, placeholder: "Email Address", class: "ui fluid login-field"
-                    %label Birthday
                     .field
+                        %label Birthday
                         .ui.input
                             = u.date_select :birthday, class: "login-field"
-                    %label Bio
                     .field
+                        %label Bio
                         .ui.input
                             = u.text_area :bio, placeholder: "Describe yourself", rows: "2", class: "login-field"
 

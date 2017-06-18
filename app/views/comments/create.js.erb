@@ -1,4 +1,5 @@
-$(".comment-textarea").val("");
-$("#swit<%= @swit.id %> .comments").prepend("<%= escape_javascript(render :partial => 'comments/comment') %>")
-$(".comment-textarea").val("");
+$("#comment_content").val("");
+console.log("Hellou");
+$(".comments").append("<%= escape_javascript(render :partial => 'comments/comment') %>")
+$("#comment_content").val("");
 $('.swit-repliescount#count<%= @swit.id %>').text('<%= @swit.comments.count %>');

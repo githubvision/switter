@@ -47,12 +47,8 @@ $(document).on "turbolinks:load", ->
 
 	$('.comment-textarea').on 'keyup', ->
 		length = $(this).val().length;
-		if length > 0
-			if $('.createcomm-btn').hasClass('disabled')
-		  		$('.createcomm-btn').removeClass('disabled');
-		else
-			if $('.createcomm-btn').hasClass('disabled') == false
-		  		$('.createcomm-btn').addClass('disabled');
+		console.log(length);
+
 
 		
 		return

@@ -36,12 +36,18 @@
 				%a.ui.basic.yellow.left.pointing.label
 					.swit-sourcount{:id => "count#{@swit.id}"}
 						= @swit.sours.count		
-	
+
+.write-comment
+	.create-comment
+		= form_for @comment, :url => { :controller => 'comments', :action => 'create', :swit_id => @swit.id }, :html => {:class => "ui form", :method => :post }, remote: true do |f|
+			.ui.grid
+				#comment-field.ui.twelve.wide.column.field
+					.ui.input
+						= f.text_area :content, rows: 1,  placeholder: "Write comment",  class: "comment-textarea"
+				.ui.four.wide.column.field
+					= f.submit 'Create Comment', class: "ui fluid large teal button createcomm-btn"
+
 .comments
 	- @swit.comments.each do |c|
 		- @comment = c
 		= render :partial => 'comments/comment'
-
-.write-comment
-	= render :partial => 'comments/create_comment'
-

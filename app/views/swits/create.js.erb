@@ -1,10 +1,8 @@
 <% if @swit.errors.any? %>
-	console.log("asdfasdf");
 	$("#create-swit-error").html("Post too long");
-    
 <% else %>
 	$('#swit-comment-modal').html('');
 	$('#swit-comment-modal').html("<%= escape_javascript(render :partial => 'comments/switandcomments')%>");
 	$("#profile-swits").prepend("<%= escape_javascript(render :partial => 'swits/view_swits') %>")
-	$(".swit-create").val("");
+	$("#swit_post").val("");
 <% end %>
