@@ -12,10 +12,10 @@ class ProfileController < ApplicationController
 		@error = params[:error]
 		@error_message = params[:error_message]
 		
-		if @error_message == 1
+		if @error_message == "1"
 			@error_message = "Password must be at least 8 characters."
-		elsif @error_message == 2
-			@error_message = "Password fill-up all the fields."
+		elsif @error_message == "2"
+			@error_message = "Please fill-up all the fields."
 		else
 			@error_message = nil
 		end
