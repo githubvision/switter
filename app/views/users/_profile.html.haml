@@ -7,12 +7,12 @@
 				Swits
 		.column.five.wide
 			.row.center.aligned.numstat
-				= Sweet.where("sweeter_id = ?", session[:user_id]).count
+				= Sweet.where("sweeter_id = ?", @user.id).count
 			.row.center.aligned.stat
 				Sweets
 		.column.five.wide
 			.row.center.aligned.numstat
-				= Sour.where("sourer_id = ?", session[:user_id]).count
+				= Sour.where("sourer_id = ?", @user.id).count
 			.row.center.aligned.stat
 				Sours
 
