@@ -1,6 +1,6 @@
 #create-swit.fluid
   = form_for @swit, :url => { :controller => 'swits', :action => 'create'}, :html => { :method => :post, :class => "ui form" }, remote: true do |f|
-    = f.text_area :post, placeholder: "What's sweet?", rows: "4", class: "swit-text-area"
+    = f.text_area :post, placeholder: "What's sweet?", rows: "8", class: "swit-text-area"
     %span#create-swit-error{:style => "color: red;"}
     .ui.grid
       .ui.eight.wide.column
