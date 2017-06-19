@@ -1,5 +1,5 @@
 #user-profile.ui.grid
-	#profile-left.ui.column.ten.wide
+	#profile-left.ui.column.eleven.wide
 		#profile-name
 			= "#{@user.first_name} #{@user.last_name}"
 		#profile-birthday
@@ -12,10 +12,10 @@
 				Bio
 			•
 			= @user.bio
-	#profile-right.ui.column.six.wide
+	#profile-right.ui.column.five.wide
 		- if current_page?(:controller => 'profile', :action => 'show', :id => session[:user_id])
 			#change-profile
-				= link_to edit_profile_path(:id => session[:user_id]), :remote => true, class: "edit-profile-btn ui inverted red button" do
+				= link_to edit_profile_path(:id => session[:user_id]), :remote => true, class: "edit-profile-btn ui inverted blue button" do
 					Edit Profile
 
 	= render :partial => 'users/edit_profile'

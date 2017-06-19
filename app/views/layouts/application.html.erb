@@ -13,19 +13,17 @@
   	<% if current_page?(:controller => 'login', :action => 'index') %>
 		<%= yield %>
   	<% else %>
-  		<div id="home-nav">
-  			<div id="navbar"  class="ui grid">
-			<div class="nav-btn btn-home one wide column  center aligned">
+		<div id="home-nav">
+			<div id="navbar"  class="ui grid middle aligned">
+			<div id="navigation" class="nav-btn three wide column center aligned">
 				<%= link_to home_index_path do %>
 					<i class="home icon"></i>
 				<% end %>
-			</div>
-			<div class="nav-btn btn-profile one wide column center aligned">
 				<%= link_to profile_path(:action => 'show', :id => session[:user_id]) do %>
 					<i class="user icon"></i>
 				<% end %>
 			</div>
-			<div id="nav-title" class="eight wide column middle aligned">
+			<div id="nav-title" class="six wide column middle aligned">
 				<h1>
 				Switter
 				</h1>
@@ -40,6 +38,7 @@
 			</div>
 			</div>
 		</div>
+
 		<div id="main-holder">
 		<div id="main-content">
     		<%= yield %>

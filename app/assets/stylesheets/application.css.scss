@@ -21,20 +21,13 @@ $color-yellow: #FECEAB;
 $color-pink: #FF847C;
 $color-red: #E84A5F;
 $color-gray: #2A363B;
-
-.btn-home{
-	background: $color-red;
-}
-
-.btn-profile{
-	background: $color-yellow;
-}
+$dark-gray: #212121;
 
 #main{
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	background: $color-gray;
+	background: $dark-gray;
 }
 
 #home-nav{
@@ -44,6 +37,8 @@ $color-gray: #2A363B;
 	background: #d9d5de;
 	padding-left: 100px;
 	padding-right: 100px;
+	// padding-top: 10px;
+	// padding-bottom: 10px;
 	z-index: 9999;
 }
 
@@ -64,13 +59,7 @@ $color-gray: #2A363B;
 }
 
 .nav-btn a{
-	font-size: 25px;
-	color: black!important;
-}
-
-.nav-btn a:hover{
-	background: transparent!important;
-	color: white!important;
+	font-size: 40px;
 }
 
 #nav-title h1{
@@ -82,6 +71,7 @@ $color-gray: #2A363B;
 	height: 100%;
 	position: fixed;
 	padding-top: 75px;
+	// padding-left: 15%;
 	overflow-x: hidden;
 }
 
@@ -92,8 +82,27 @@ $color-gray: #2A363B;
 	overflow-x: hidden;
 }
 
-a:hover{
-	background: transparent!important;
+#signup-box::-webkit-scrollbar-track
+{
+    background: transparent;
+    /*-webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0.3);*/
+    /*background-color: #F5F5F5;*/
+}
+#signup-box::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: transparent;
+}
+
+#signup-box::-webkit-scrollbar-thumb
+{
+    background-color: #4db6ac;
+    border-radius: 5px;
+}
+
+.swit-big-content a{
+	color: #4db6ac!important;
+	font-weight: bold!important;	
 }
 
 .swit-post a{
@@ -101,6 +110,46 @@ a:hover{
 	font-weight: bold!important;
 }
 
+.swit-big-content a:hover{
+	color: #80cbc4!important;
+}
+
 .swit-post a:hover{
 	color: $color-pink!important;
+}
+
+#sidenav{
+	position: fixed;
+	width: 15%;
+	height: 100%;
+	background: $color-gray;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.sidenav-btn{
+	height: 100px;
+	background: #37474f;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.nav-btn a:hover{
+	color: #0277bd!important;
+}
+
+.nav-btn a{
+	color: #01579b!important;
+	border-radius: 50%;
+	width: 44px!important;
+	top: 0!important;
+}
+
+#navigation{
+	padding: 0!important;
+	padding-top: 30px!important;
+}
+
+a:hover{
+	background: transparent;
 }

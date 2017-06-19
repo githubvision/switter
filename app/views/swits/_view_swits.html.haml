@@ -27,27 +27,30 @@
 		%div.swit-functions
 			.swit-function
 				= link_to :controller => 'swits', :action => 'show', :id => @swit.id, data: { swit: @swit, id: @swit.id }, :remote => true, class: "ui labeled button" do
-					.ui.basic.blue.button.show-comments{ data: { swit: @swit, id: @swit.id }}
+					.ui.blue.button.show-comments{ data: { swit: @swit, id: @swit.id }}
+						&nbsp;
 						%span.swit-repliescount{:id => "count#{@swit.id}"}
 							= @swit.comments.count
+						&nbsp;
 						- if @swit.comments.count > 1
-							Replies
+							Comments
 						- else
-							Reply
+							Comment
+						&nbsp;
 
 			.swit-function
 				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true, class: "ui labeled button" do
-					.ui.red.button
+					.ui.button.sweets-box
 						%i.icon.map.pin
-						Sweet
-					%a.ui.basic.red.left.pointing.label
+						Sweets
+					%a.ui.basic.left.pointing.label
 						.swit-sweetcount{:id => "count#{@swit.id}"}
 							= @swit.sweets.count
 			.swit-function
 				= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sour'}, :remote => true, class: "ui labeled button" do
-					.ui.yellow.button
+					.ui.button.sours-box
 						%i.icon.lemon
-						Sour
-					%a.ui.basic.yellow.left.pointing.label
+						Sours
+					%a.ui.basic.left.pointing.label
 						.swit-sourcount{:id => "count#{@swit.id}"}
 							= @swit.sours.count

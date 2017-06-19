@@ -1,16 +1,11 @@
-#create-swit
+#create-swit.fluid
   = form_for @swit, :url => { :controller => 'swits', :action => 'create'}, :html => { :method => :post, :class => "ui form" }, remote: true do |f|
-    = f.label "CREATE SWIT", class: "createswit-label"
     = f.text_area :post, placeholder: "What's sweet?", rows: "4", class: "swit-text-area"
-    %span#swit-charcount 140
-    %span  /140 characters
-    %span#create-swit-error{:style => "color: red;"} 
-    .swit-submit
-      = f.submit 'Swit', class: "ui teal disabled button createswit-btn"
-    
-    - if @swit.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@swit.errors.count, "error")} prohibited this swit from being saved:"
-        %ul
-          - @swit.errors.full_messages.each do |message|
-            %li= message
+    %span#create-swit-error{:style => "color: red;"}
+    .ui.grid
+      .ui.eight.wide.column
+        .swit-submit
+          = f.submit 'CREATE SWIT', class: "ui disabled fluid button createswit-btn"
+      .ui.eight.wide.column.middle.aligned#chars-col
+        %span#swit-charcount 140
+        %span  /140 characters

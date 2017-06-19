@@ -10,3 +10,5 @@ $(document).on "turbolinks:load", ->
 
 	
 		return
+
+	$('#swit_post').val("");

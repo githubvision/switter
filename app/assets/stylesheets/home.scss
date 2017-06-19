@@ -11,8 +11,7 @@ $color-gray: #2A363B;
 
 
 #left-panel{
-	padding: 50px;
-	padding-top: 150px;
+	padding-top: 14px;
 }
 
 .createswit-label{
@@ -28,7 +27,11 @@ $color-gray: #2A363B;
 }
 
 #center-panel{
-	background: white;
+	background: transparent;
 	padding-left: 0!important;
 	padding-right: 0!important;
+}
+
+#create-swit{
+
 }

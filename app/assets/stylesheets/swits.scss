@@ -11,14 +11,16 @@ $color-red: #E84A5F;
 $color-gray: #2A363B;
 
 .swit{
-	border: solid;
-	border-width: 2px;
-	border-color: #d9d5de;
+	// border: solid;
+	// border-width: 2px;
+	// border-color: #d9d5de;
 	border-radius: 3px;
 	margin: 10px;
-	padding: 10px;
+	padding: 15px;
 	padding-bottom: 50px;
-	font-size: 16px;
+	font-size: 15px;
+	background: #fafafa;
+	box-shadow: 0px 0px 30px black;
 }
 
 .swit-post{
@@ -26,22 +28,22 @@ $color-gray: #2A363B;
 }
 
 .swit-big{
-	border: solid;
-	border-width: 2px;
-	border-color: #d9d5de;
 	border-radius: 3px;
 	margin: 10px;
-	padding: 10px;
+	padding: 20px;
 	padding-bottom: 50px;
 	font-size: 20px;
+	background: #1678c2;
+	color: white;
 }
 
 .swit-big-header{
 	margin-bottom: 10px;
+	font-size: 20px;
 }
 
-.swit-big-content, .swit-big-header{
-	font-size: 20px;
+.swit-big-content{
+	font-size: 24px;
 }
 
 .swit-big-name{
@@ -49,8 +51,9 @@ $color-gray: #2A363B;
 }
 
 .swit-big-timestamp{
-	color: $color-gray;
-	font-size: 18px;	
+	margin-top: 5px;
+	color: #d9d5de;
+	font-size: 14px;	
 }
 
 
@@ -84,18 +87,46 @@ $color-gray: #2A363B;
 	padding-top: 9px!important;
 }
 
-.view-comments .ui.basic.blue.button{
-	padding: 10px!important;
-	height: 30px!important;
+.swit-function .ui.blue.button{
+	padding: 9px!important;
+	height: 32px!important;
+	background: #0277bd!important;
 }
 
 #create-swit{
-	border-radius: 3px;
 	padding: 10px;
-	background: white;
-
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: #0277bd;
+	position: fixed;
+	top: 50%;
+	color: white;
+	width: 23%;
+	box-shadow: 0px 0px 15px black;
 }
 
 .swit-big{
 
+}
+
+.sweets-box{
+	color: #e57373!important;
+}
+
+.sours-box{
+	color: #558b2f!important;
+}
+
+.createswit-btn{
+	background: #e3f2fd!important;
+	color: #0277bd!important;
+	text-align: center!important;
+}
+
+.createswit-btn:hover{
+	background: #64b5f6;
+}
+
+#chars-col{
+	margin-top: 10px!important;
 }
