@@ -13,7 +13,7 @@ $color-gray: #2A363B;
 #swit-comment-modal{
 	padding-left: 50px;
 	padding-right: 50px;
-	background: transparent;
+	background: white;
 }
 
 .create-comment{
@@ -21,6 +21,7 @@ $color-gray: #2A363B;
 	padding: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
+	margin-bottom: 10px;
 	border-radius: 3px;
 }
 
@@ -32,7 +33,7 @@ $color-gray: #2A363B;
 	margin: 10px;
 	padding: 10px;
 	font-size: 16px;
-	background: white;
+	background: #d9d5de;
 }
 
 .comment-name{
@@ -40,7 +41,8 @@ $color-gray: #2A363B;
 }
 
 .comment-timestamp{
-	color: $color-gray;	
+	font-size: 12px;
+	color: $color-gray;
 }
 
 .ui.basic.blue.button{

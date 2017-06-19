@@ -80,8 +80,7 @@ class SwitsController < ApplicationController
   def destroy
     @swit.destroy
     respond_to do |format|
-      format.html { redirect_to swits_url, notice: 'Swit was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
   end
 

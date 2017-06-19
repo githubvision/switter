@@ -1,21 +1,39 @@
-#user-profile.ui.grid
-	#profile-left.ui.column.eleven.wide
-		#profile-name
-			= "#{@user.first_name} #{@user.last_name}"
-		#profile-birthday
-			%span.profile-label
-				Birthay 
-			•
-			= @user.birthday
-		#profile-bio
-			%span.profile-label
-				Bio
-			•
-			= @user.bio
-	#profile-right.ui.column.five.wide
-		- if current_page?(:controller => 'profile', :action => 'show', :id => session[:user_id])
-			#change-profile
-				= link_to edit_profile_path(:id => session[:user_id]), :remote => true, class: "edit-profile-btn ui inverted blue button" do
-					Edit Profile
+#user-profile
+	#profile-stats.ui.grid
+		.column.five.wide
+			.row.center.aligned.numstat
+				= @user.swits.count
+			.row.center.aligned.stat
+				Swits
+		.column.five.wide
+			.row.center.aligned.numstat
+				= Sweet.where("sweeter_id = ?", session[:user_id]).count
+			.row.center.aligned.stat
+				Sweets
+		.column.five.wide
+			.row.center.aligned.numstat
+				= Sour.where("sourer_id = ?", session[:user_id]).count
+			.row.center.aligned.stat
+				Sours
 
-	= render :partial => 'users/edit_profile'
+	.ui.grid
+		#profile-left.ui.column.eleven.wide
+			#profile-name
+				= "#{@user.first_name} #{@user.last_name}"
+			#profile-birthday
+				%span.profile-label
+					Birthay 
+				•
+				= @user.birthday
+			#profile-bio
+				%span.profile-label
+					Bio
+				•
+				= @user.bio
+		#profile-right.ui.column.five.wide
+			- if current_page?(:controller => 'profile', :action => 'show', :id => session[:user_id])
+				#change-profile
+					= link_to edit_profile_path(:id => session[:user_id]), :remote => true, class: "edit-profile-btn ui inverted blue button" do
+						Edit Profile
+
+		= render :partial => 'users/edit_profile'

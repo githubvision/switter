@@ -5,4 +5,5 @@
 	$('#swit-comment-modal').html("<%= escape_javascript(render :partial => 'comments/switandcomments')%>");
 	$("#profile-swits").prepend("<%= escape_javascript(render :partial => 'swits/view_swits') %>")
 	$("#swit_post").val("");
+	$("#swit-charcount").text("140");
 <% end %>

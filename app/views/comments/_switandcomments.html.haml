@@ -24,18 +24,29 @@
 	%div.swit-functions
 		.swit-function
 			= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sweet'}, :remote => true, class: "ui labeled button" do
-				.ui.button.sweets-box
-					%i.icon.map.pin
-					Sweets
-				%a.ui.basic.left.pointing.label
+				- if @swit.sweets.where("sweeter_id = ?", session[:user_id]).empty?
+					.ui.button.sweets-box
+						%i.icon.map.pin
+						Sweets
+				- else
+					.ui.button.sweets-box.sweetened
+						%i.icon.map.pin
+						Sweets
+
+				%a.ui.basic.left.pointing.label.sweets-num
 					.swit-sweetcount{:id => "count#{@swit.id}"}
 						= @swit.sweets.count
 		.swit-function
 			= button_to swit_path(:action => 'update', :id => @swit.id), :method => :put, params: {:mode => 'sour'}, :remote => true, class: "ui labeled button" do
-				.ui.button.sours-box
-					%i.icon.lemon
-					Sours
-				%a.ui.basic.left.pointing.label
+				- if @swit.sours.where("sourer_id = ?", session[:user_id]).empty?
+					.ui.button.sours-box
+						%i.icon.lemon
+						Sours
+				- else
+					.ui.button.sours-box.soured
+						%i.icon.lemon
+						Sours
+				%a.ui.basic.left.pointing.label.sours-num
 					.swit-sourcount{:id => "count#{@swit.id}"}
 						= @swit.sours.count
 

@@ -11,9 +11,14 @@ $color-red: #E84A5F;
 $color-gray: #2A363B;
 
 #user-profile{
-	margin: 0!important;
-	padding: 10px;
+	margin: 0;
+	margin-left: 10px!important;
+	margin-right: 10px!important;
+	padding: 15px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	background: #0277bd;
+	box-shadow: 0 0 15px black;
 }
 
 #profile-name{

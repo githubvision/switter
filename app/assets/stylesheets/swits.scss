@@ -99,7 +99,7 @@ $color-gray: #2A363B;
 	padding-bottom: 20px;
 	background: #0277bd;
 	position: fixed;
-	top: 50%;
+	margin-top: 10px;
 	color: white;
 	width: 23%;
 	box-shadow: 0px 0px 15px black;
@@ -113,8 +113,26 @@ $color-gray: #2A363B;
 	color: #e57373!important;
 }
 
+.sweets-num:hover{
+	color: #e57373!important;
+}
+
+.sweetened{
+	background: #e57373!important;
+	color: white!important;
+}
+
 .sours-box{
 	color: #558b2f!important;
+}
+
+.sours-num:hover{
+	color: #558b2f!important;
+}
+
+.soured{
+	background: #558b2f!important;
+	color: white!important;
 }
 
 .createswit-btn{
